@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.nfeldkamp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,5 +131,9 @@ public List randomDeckToShuffle(List<Card> deckToShuffle) {
 
     public Card dealFacedown(){
         return cards.remove(0);
+    }
+
+    public int getSize(){
+        return this.cards.size();
     }
 }

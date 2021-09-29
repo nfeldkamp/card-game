@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.nfeldkamp;
 
 import java.util.Random;
 
@@ -9,8 +9,9 @@ public class MainProgram {
 
         Deck newDeck = new Deck();
         Deck newDeck2 = new Deck();
+        //newGame.nextDeal();
         CardGameWar newGame = new CardGameWar();
-        newGame.nextDeal();
+
 
     }
 }
