@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class CardGameWar {
     //attribs
     private static Scanner input = new Scanner(System.in);
-    private Boolean deckEmpty;
     private Card playerOneCard;
     private Card playerTwoCard;
     private String playerOneName;
@@ -18,18 +17,7 @@ public class CardGameWar {
     //constructor
     public CardGameWar(){
         System.out.println("----------WELCOME TO WAR----------");
-        System.out.println("Are there one(1) or two players(2)?: ");
-        this.players = input.nextLine();
-        if(this.players.equals("1")) {
-            System.out.println("What is your name?: ");
-            this.playerOneName = input.nextLine();
-            this.playerTwoName = "Computer Player";
-        } else {
-            System.out.println("What is the name of player one?: ");
-            this.playerOneName = input.nextLine();
-            System.out.println("What is the name of player two?: ");
-            this.playerOneName = input.nextLine();
-        }
+        chooseAmountOfPlayers();
         System.out.println("To put the first cards down press enter!");
         while(input.nextLine().equals("")) {
             nextDeal();
@@ -49,7 +37,6 @@ public class CardGameWar {
         if(newDeck.getSize() != 0) {
             this.playerOneCard = newDeck.deal();
             this.playerTwoCard = newDeck.deal();
-            ;
             System.out.println(this.playerOneName + "'s card: " + playerOneCard);
             System.out.println(this.playerTwoName + "'s card: " + playerTwoCard);
             if (this.playerOneCard.getScoreValue() == this.playerTwoCard.getScoreValue()) {
@@ -127,6 +114,24 @@ public class CardGameWar {
                 } else {
                     System.out.println(this.playerTwoName + " is winning with a score of " + playerTwoScore);
                 }
+        }
+    }
+
+    public void chooseAmountOfPlayers(){
+        System.out.println("Are there one(1) or two(2) players?: ");
+        this.players = input.nextLine();
+        if(this.players.equals("1")) {
+            System.out.println("What is your name?: ");
+            this.playerOneName = input.nextLine();
+            this.playerTwoName = "Computer Player";
+        } else if (this.players.equals("2")) {
+            System.out.println("What is the name of player one?: ");
+            this.playerOneName = input.nextLine();
+            System.out.println("What is the name of player two?: ");
+            this.playerTwoName = input.nextLine();
+        } else {
+            System.out.println("Please choose one(1) or two(2) players");
+            chooseAmountOfPlayers();
         }
     }
 

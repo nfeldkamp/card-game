@@ -1,0 +1,2 @@
+Rework deck and deck for war to only come out of deck with
+newDeck(war);
