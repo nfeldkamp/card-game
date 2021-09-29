@@ -72,15 +72,27 @@ public class CardGameWar {
         this.playerOneCard = newDeck.deal();
         this.playerTwoCard = newDeck.deal();
         System.out.println("-------------THIS IS WAR!-------------");
-        newDeck.deal(3);
+        if(newDeck.getSize() > 4 && newDeck.getSize() < 8){
+            newDeck.deal((newDeck.getSize() / 2) - 1);
+        } else if (newDeck.getSize() >= 8) {
+            newDeck.deal(3);
+        }
         System.out.println(this.playerOneName + ": One, Two, Three, Flip");
         System.out.println(this.playerOneName + "'s card: " + newDeck.deal());
-        newDeck.deal(3);
+        if(newDeck.getSize() > 2 && newDeck.getSize() < 4){
+            newDeck.deal(newDeck.getSize() - 1);
+        }else if (newDeck.getSize() >= 4) {
+            newDeck.deal(3);
+        }
         System.out.println(this.playerTwoName + ": One, Two, Three, Flip");
         System.out.println(this.playerTwoName +"'s card: " + newDeck.deal());
-        if (this.playerOneCard.getScoreValue() == this.playerTwoCard.getScoreValue()){
+        if(newDeck.getSize() > 2){
+        if (this.playerOneCard.getScoreValue() == this.playerTwoCard.getScoreValue()) {
             System.out.println("----------------DOUBLE----------------");
             thisIsWar();
+        } else {
+            whoIsWinning();
+        }
         }else if (this.playerOneCard.getScoreValue() > this.playerTwoCard.getScoreValue()) {
             //need to add scoring
             playerOneScore += 8;
