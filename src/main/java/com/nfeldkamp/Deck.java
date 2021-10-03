@@ -13,27 +13,21 @@ public class Deck {
     //no one can access this list directly to add cards
     private List<Card> cards = new ArrayList<>();//have to instantiate to ArrayList or it will give null exception
     private boolean newDeck = true;
-    private int[] warScoreValues = {14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    private int[] gameScoreValues;
     private int[] defaultScoreValues = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 
     //constructors
     //overridden default constructor
-    public Deck(String game) {
+    public Deck(int[] scores) {
         //build deck of 52 cards
         //array is local to method
-        int[] scoreValues = new int[13];
-        if(game.equals("war")){
-            scoreValues = warScoreValues;
-        } else {
-            scoreValues = defaultScoreValues;
-        }
         String[] valueNames = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
         //for each suit
         for( String suit : SUITS_FOR_CARDS ) {
             //for each value
             for( int i = 0; i < valueNames.length; i++ ) {//need to add score here somehow
                 //declare a new card
-                    Card nextCard = new Card(suit, valueNames[i], scoreValues[i]);
+                    Card nextCard = new Card(suit, valueNames[i], scores[i]);
                     cards.add(nextCard);
                 }
             }
@@ -75,7 +69,6 @@ public List randomDeckToShuffle(List<Card> deckToShuffle) {
         } else { //adds first and second half to cards to shuffle
             bothHalves.addAll(firstHalf);
             bothHalves.addAll(secondHalf);
-
         }
         if(i == 51){//loops the index around if it goes past index that exists to add new cards
             i = 0;
@@ -135,5 +128,11 @@ public List randomDeckToShuffle(List<Card> deckToShuffle) {
 
     public int getSize(){
         return this.cards.size();
+    }
+
+    //need to implement
+    public int[] setScore(int[] scoreValues){
+        //{14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+      return this.gameScoreValues = scoreValues;
     }
 }

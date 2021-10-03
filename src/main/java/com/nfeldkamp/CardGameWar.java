@@ -12,17 +12,23 @@ public class CardGameWar {
     private int playerOneScore;
     private int playerTwoScore;
     private String players;
-    private DeckForWar newDeck = new DeckForWar();
+    int[] scoresForWar = {14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    private Deck newDeck = new Deck(scoresForWar);
 
     //constructor
     public CardGameWar(){
-        System.out.println("----------WELCOME TO WAR----------");
+        System.out.println("-------------WELCOME TO-------------");
+        System.out.println("8b      db      d8 ,adPPYYba, 8b,dPPYba,  ");
+        System.out.println("`8b    d88b    d8' \"\"     `Y8 88P'   \"Y8  ");
+        System.out.println(" `8b  d8'`8b  d8'  ,adPPPPP88 88          ");
+        System.out.println("  `8bd8'  `8bd8'   88,    ,88 88          ");
+        System.out.println("    YP      YP     `\"8bbdP\"Y8 88 ");
         chooseAmountOfPlayers();
         System.out.println("To put the first cards down press enter!");
         while(input.nextLine().equals("")) {
-            nextDeal();
-            if (this.newDeck.getSize() != 0) {
+            if (this.newDeck.getSize() >= 2) {
                 System.out.println("Press enter to face-off again.");
+                nextDeal();
             } else
                 System.out.println("Thanks for playing!");
         }
@@ -59,6 +65,12 @@ public class CardGameWar {
         this.playerOneCard = newDeck.deal();
         this.playerTwoCard = newDeck.deal();
         System.out.println("-------------THIS IS WAR!-------------");
+        System.out.println("        ( •̪●)");
+        System.out.println("      ███████ ]▄▄▄▄▄▄▄▄▃   ▃     ▃ ");
+        System.out.println(" ▂▂▄▅█████████▅▄▃▂                 ");
+        System.out.println("I███████████████████].");
+        System.out.println(" ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤...");
+
         if(newDeck.getSize() > 4 && newDeck.getSize() < 8){
             newDeck.deal((newDeck.getSize() / 2) - 1);
         } else if (newDeck.getSize() >= 8) {
