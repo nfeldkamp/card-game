@@ -12,8 +12,10 @@ public class CardGameGoFish extends CardGame {
     private int playerTwoScore = 0;
     private String[] playerData;
     private String players;
-    private Deck newDeck = new Deck();
     private String inquiringCard = "";
+    int[] scoresGoFish = {14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    private Deck newDeck = new Deck(scoresGoFish);
+
 
     //constructor
     public CardGameGoFish(){
@@ -46,6 +48,7 @@ public class CardGameGoFish extends CardGame {
         //TODO make this handle both turns with one set of code; current turn and not turn or whatever
         if(newDeck.getSize() != 0) {
             String currentHand = "";
+            Collections.sort(playerOneHand, new SortbyScore());
             for (Card card : playerOneHand){
                 currentHand += "[" + card.getFaceValue() + " of " + card.getSuit() + "]  ";
             }
@@ -124,6 +127,7 @@ public class CardGameGoFish extends CardGame {
         }
     }
 
+    //FIXME Not working
     public boolean isFourOfAKind(String cardName, List<Card> playerHandToCheck){//check if card in hand
         int numberOfMatches = Collections.frequency(playerHandToCheck, cardName);
         if (numberOfMatches == 4) {
@@ -136,6 +140,16 @@ public class CardGameGoFish extends CardGame {
             return true;
         }
         return false;
+    }
+
+    class SortbyScore implements Comparator<Card>
+    {
+        // Used for sorting in ascending order of
+        // scoreValue
+        public int compare(Card a, Card b)
+        {
+            return a.getScoreValue() - b.getScoreValue();
+        }
     }
 
     //2 players 7 cards dealt, remaining face down in a draw pile
