@@ -1,8 +1,12 @@
 package com.nfeldkamp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import static java.util.Arrays.binarySearch;
+import static java.util.Arrays.sort;
 
 public class Deck {
     //attribs
@@ -14,20 +18,22 @@ public class Deck {
     private List<Card> cards = new ArrayList<>();//have to instantiate to ArrayList or it will give null exception
     private boolean newDeck = true;
     private int[] gameScoreValues;
+    private List<String> valueNames= new ArrayList<String>();
+    //private String[] valueNames = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     private int[] defaultScoreValues = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 
     //constructors
     //overridden default constructor
     public Deck(int[] scores) {
+        valueNames.addAll(Arrays.asList("A","2","3","4","5","6","7","8","9","10","J","Q","K"));
         //build deck of 52 cards
         //array is local to method
-        String[] valueNames = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
         //for each suit
         for( String suit : SUITS_FOR_CARDS ) {
             //for each value
-            for( int i = 0; i < valueNames.length; i++ ) {//need to add score here somehow
+            for( int i = 0; i < this.valueNames.size(); i++ ) {//need to add score here somehow
                 //declare a new card
-                    Card nextCard = new Card(suit, valueNames[i], scores[i]);
+                    Card nextCard = new Card(suit, this.valueNames.get(i), scores[i]);
                     cards.add(nextCard);
                 }
             }
@@ -36,13 +42,13 @@ public class Deck {
     }
 
     public Deck() {
+        valueNames.addAll(Arrays.asList("A","2","3","4","5","6","7","8","9","10","J","Q","K"));
         //build deck of 52 cards
         //array is local to method
-        String[] valueNames = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
         //for each suit
         for( String suit : SUITS_FOR_CARDS ) {
             //for each value
-            for( String valueName : valueNames ) {
+            for( String valueName : this.valueNames ) {
                 //declare a new card
                 Card nextCard = new Card(suit, valueName);
                 cards.add(nextCard);
@@ -134,5 +140,10 @@ public List randomDeckToShuffle(List<Card> deckToShuffle) {
     public int[] setScore(int[] scoreValues){
         //{14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
       return this.gameScoreValues = scoreValues;
+    }
+
+    //checks if input is a value face value
+    public boolean isValid(String cardToCheck) {
+        return valueNames.contains(cardToCheck.toUpperCase());
     }
 }

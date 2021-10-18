@@ -1,11 +1,11 @@
 package com.nfeldkamp;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CardGame {
 
     private static Scanner input = new Scanner(System.in);
-    private String players;
     private int playerOneScore;
     private int playerTwoScore;
     private String playerOneName;
@@ -16,6 +16,12 @@ public class CardGame {
 
 
 
+
+    public void makeHand(List<Card> hand, int num, Deck deck){
+        for(int i = 0; i < num; i++){
+            hand.add(deck.deal());
+        }
+    }
 
     public void whoIsWinning(Deck deckName){
         if (this.playerOneScore == this.playerTwoScore) {
@@ -42,21 +48,23 @@ public class CardGame {
         }
     }
 
-    public void chooseAmountOfPlayers(){
+    public String[] chooseAmountOfPlayers(){
+        String[] playerData = new String[3];
         System.out.println("Are there one(1) or two(2) players?: ");
-        this.players = input.nextLine();
-        if(this.players.equals("1")) {
+        playerData[0] = input.nextLine();
+        if(playerData[0].equals("1")) {
             System.out.println("What is your name?: ");
-            this.playerOneName = input.nextLine();
-            this.playerTwoName = "Computer Player";
-        } else if (this.players.equals("2")) {
+            playerData[1] = input.nextLine();
+            playerData[2] = "Computer Player";
+        } else if (playerData[0].equals("2")) {
             System.out.println("What is the name of player one?: ");
-            this.playerOneName = input.nextLine();
+            playerData[1] = input.nextLine();
             System.out.println("What is the name of player two?: ");
-            this.playerTwoName = input.nextLine();
+            playerData[2] = input.nextLine();
         } else {
             System.out.println("Please choose one(1) or two(2) players");
             chooseAmountOfPlayers();
         }
+        return playerData;
     }
 }

@@ -10,9 +10,10 @@ public class MainProgram {
         Deck newDeck = new Deck();
         Deck newDeck2 = new Deck();
         //newGame.nextDeal();
-        //CardGameGoFish newGame = new CardGameGoFish();
-        CardGameWar newGame = new CardGameWar();
+        CardGameGoFish newGame = new CardGameGoFish();
+        //CardGameWar newGame = new CardGameWar();
         Deck newDeck3 = new Deck();
+
 
     }
 }
