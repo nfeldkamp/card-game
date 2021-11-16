@@ -65,7 +65,7 @@ public class CardGameWar {
         this.playerOneCard = newDeck.deal();
         this.playerTwoCard = newDeck.deal();
         System.out.println("-------------THIS IS WAR!-------------");
-        System.out.println("        ( •̪●)");
+        System.out.println("        (  o)");
         System.out.println("      ███████ ]▄▄▄▄▄▄▄▄▃   ▃     ▃ ");
         System.out.println(" ▂▂▄▅█████████▅▄▃▂                 ");
         System.out.println("I███████████████████].");

@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/38486286/write-data-into-google-spreadsheet-w-java
+https://console.cloud.google.com/apis/credentials?project=gofish-330904
+https://www.baeldung.com/google-sheets-java-client
+https://developers.google.com/sheets/api/quickstart/java
+https://www.google.com/search?q=how+to+connect+google+sheet+to+java&rlz=1C1GCEA_enUS948US948&oq=how+to+connect+google+sheet+to+java&aqs=chrome..69i57j33i22i29i30l2.6144j0j9&sourceid=chrome&ie=UTF-8
