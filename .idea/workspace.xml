@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.MainProgram">
+  <component name="RunManager" selected="JUnit.GoogleSheetsLiveTest">
     <configuration name="AsciiPicToSout" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.nfeldkamp.AsciiPicToSout" />
       <module name="CardGames" />
@@ -55,8 +55,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoogleSheetsLiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CardGames" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nfeldkamp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nfeldkamp" />
+      <option name="MAIN_CLASS_NAME" value="com.nfeldkamp.GoogleSheetsLiveTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoogleSheetsLiveTest" />
         <item itemvalue="Application.MainProgram" />
         <item itemvalue="Application.AsciiPicToSout" />
       </list>
@@ -88,8 +104,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/nfeldkamp/MainProgram.java</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/nfeldkamp/GoogleAuthorizeUtil.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
